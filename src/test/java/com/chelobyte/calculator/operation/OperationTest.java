@@ -16,7 +16,7 @@ class OperationTest {
 
         // when
         // then
-        assertThat(operation.operate(), is(2));
+        assertThat(operation.operate(), is(2.0));
 
     }
 
@@ -28,7 +28,7 @@ class OperationTest {
 
         // when
         // then
-        assertThat(operation.operate(), is(0));
+        assertThat(operation.operate(), is(0.0));
 
     }
 
@@ -40,7 +40,7 @@ class OperationTest {
 
         // when
         // then
-        assertThat(operation.operate(), is(4));
+        assertThat(operation.operate(), is(4.0));
 
     }
 
@@ -52,7 +52,7 @@ class OperationTest {
 
         // when
         // then
-        assertThat(operation.operate(), is(2));
+        assertThat(operation.operate(), is(2.0));
 
     }
 

@@ -2,29 +2,29 @@ package com.chelobyte.calculator.operation;
 
 public class Operation {
 
-    private final int firstNumber;
-    private final int secondNumber;
+    private final double firstNumber;
+    private final double secondNumber;
     private final String operator;
 
-    public Operation(int firstNumber, int secondNumber, String operator) {
+    public Operation(double firstNumber, double secondNumber, String operator) {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.operator = operator;
     }
 
-    private int add() {
+    private double add() {
         return this.firstNumber + this.secondNumber;
     }
 
-    private int subtract() {
+    private double subtract() {
         return this.firstNumber - this.secondNumber;
     }
 
-    private int multiply() {
+    private double multiply() {
         return firstNumber * secondNumber;
     }
 
-    private int divide() {
+    private double divide() {
         if (this.secondNumber == 0) {
             throw new ArithmeticException("Cannot divide by zero!");
         }
@@ -32,7 +32,7 @@ public class Operation {
         return this.firstNumber / this.secondNumber;
     }
 
-    public int operate() {
+    public double operate() {
 
         return switch (this.operator) {
             case "+" -> add();
