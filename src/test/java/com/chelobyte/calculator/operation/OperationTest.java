@@ -67,4 +67,29 @@ class OperationTest {
         assertThrows(ArithmeticException.class, operation::operate);
 
     }
+
+    @Test
+    void checkOperatorValueIfValidThenReturnRaisedToPowerEight() {
+
+        // given
+        Operation operation = new Operation(2, 3, "**");
+
+        // when
+        // then
+        assertThat(operation.operate(), is(8.0));
+
+    }
+
+    @Test
+    void checkOperatorValueIfValidThenReturnRootExtractionTwo() {
+
+        // given
+        Operation operation = new Operation(4, "v");
+
+        // when
+        // then
+        assertThat(operation.operate(), is(2.0));
+
+    }
+
 }

@@ -13,13 +13,23 @@ public class Executor {
 
         inputValues.takeFirstNumber();
         inputValues.takeOperator();
-        inputValues.takeSecondNumber();
 
-        operation = new Operation(
-                inputValues.getFirstNumber(),
-                inputValues.getSecondNumber(),
-                inputValues.getOperator()
-        );
+        if (!inputValues.getOperator().equals("v")) {
+            inputValues.takeSecondNumber();
+
+            operation = new Operation(
+                    inputValues.getFirstNumber(),
+                    inputValues.getSecondNumber(),
+                    inputValues.getOperator()
+            );
+        } else {
+            operation = new Operation(
+                    inputValues.getFirstNumber(),
+                    inputValues.getOperator()
+            );
+        }
+
+        inputValues.closeScanner();
 
         Result.printResult(operation.operate());
 

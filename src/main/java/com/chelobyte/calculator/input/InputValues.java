@@ -66,6 +66,8 @@ public class InputValues {
             case "-" -> true;
             case "*" -> true;
             case "/" -> true;
+            case "**" -> true;
+            case "v" -> true;
             default -> false;
         };
 

@@ -12,6 +12,12 @@ public class Operation {
         this.operator = operator;
     }
 
+    public Operation (double firstNumber, String operator) {
+        this.firstNumber = firstNumber;
+        this.secondNumber = 0;
+        this.operator = operator;
+    }
+
     private double add() {
         return this.firstNumber + this.secondNumber;
     }
@@ -32,6 +38,14 @@ public class Operation {
         return this.firstNumber / this.secondNumber;
     }
 
+    private double raiseToPower() {
+        return Math.pow(this.firstNumber, this.secondNumber);
+    }
+
+    private double extractRoot() {
+        return Math.sqrt(this.firstNumber);
+    }
+
     public double operate() {
 
         return switch (this.operator) {
@@ -39,6 +53,8 @@ public class Operation {
             case "-" -> subtract();
             case "*" -> multiply();
             case "/" -> divide();
+            case "**" -> raiseToPower();
+            case "v" -> extractRoot();
             default -> throw new IllegalStateException("Whoops! Something went wrong with the operations.");
         };
 
