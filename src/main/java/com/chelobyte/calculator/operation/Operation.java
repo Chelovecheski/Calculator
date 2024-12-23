@@ -1,6 +1,7 @@
 package com.chelobyte.calculator.operation;
 
-public class Operation {
+public class
+Operation {
 
     private final double firstNumber;
     private final double secondNumber;

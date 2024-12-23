@@ -3,12 +3,17 @@ package com.chelobyte.calculator;
 import com.chelobyte.calculator.input.InputValues;
 import com.chelobyte.calculator.operation.Operation;
 import com.chelobyte.calculator.operation.Result;
+import com.chelobyte.config.CalculatorConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Executor {
 
     public static void main(String[] args) {
 
-        InputValues inputValues = new InputValues();
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(CalculatorConfiguration.class);
+
+        InputValues inputValues = context.getBean("inputValues", InputValues.class);
         Operation operation;
 
         inputValues.takeFirstNumber();
@@ -17,21 +22,16 @@ public class Executor {
         if (!inputValues.getOperator().equals("v")) {
             inputValues.takeSecondNumber();
 
-            operation = new Operation(
-                    inputValues.getFirstNumber(),
-                    inputValues.getSecondNumber(),
-                    inputValues.getOperator()
-            );
+            operation = context.getBean("normalOperation", Operation.class);
         } else {
-            operation = new Operation(
-                    inputValues.getFirstNumber(),
-                    inputValues.getOperator()
-            );
+            operation = context.getBean("rootOperation", Operation.class);
         }
 
         inputValues.closeScanner();
 
         Result.printResult(operation.operate());
+
+        context.close();
 
     }
 
